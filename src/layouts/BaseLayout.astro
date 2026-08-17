@@ -1,0 +1,119 @@
+---
+// Base layout for GSR Abogados
+import '../styles/design-system.css';
+import Header from '../components/Header.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Garcete Suárez Ronco - Estudio Jurídico Penal en Buenos Aires' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;600&display=swap" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+  </head>
+  <body class="antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <script is:inline>
+      // Scroll animations using Intersection Observer
+      (function() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+          document.querySelectorAll('.scroll-animate').forEach(el => el.classList.add('visible'));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            } else {
+              // Bidirectional: re-animate when scrolling back up
+              entry.target.classList.remove('visible');
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -20% 0px', // Trigger at 20-25% from bottom
+          threshold: 0.1
+        });
+
+        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>
+
+  <style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: #1D1412;
+    color: #F6E6D4;
+    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Asegurar herencia de font-family en TODOS los elementos
+     especialmente form controls que no heredan por defecto */
+  button,
+  input,
+  select,
+  textarea,
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: #F6E6D4;
+    color: #1D1412;
+  }
+</style>

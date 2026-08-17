@@ -1,0 +1,514 @@
+---
+// Header component - matches reference design
+---
+
+<header class="site-header" id="site-header" role="banner">
+  <div class="header__inner">
+    <nav class="header__nav header__nav--left" id="header-nav" aria-label="Navegación principal">
+      <button class="header__close" id="header-close" aria-label="Cerrar menú" type="button">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <ul class="header__nav-list">
+        <li><a href="#areas" class="header__nav-link">Áreas de práctica</a></li>
+        <li><a href="#socios" class="header__nav-link">Socios</a></li>
+        <li><a href="#cobertura" class="header__nav-link">Cobertura interdisciplinaria</a></li>
+        <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a href="/" class="header__monogram" aria-label="Garcete Suárez Ronco - Inicio">
+      <img src="/images/monograma.svg" alt="GSR" class="header__monogram-img" width="100" height="63" />
+    </a>
+
+    <div class="header__lang" id="header-lang" role="group" aria-label="Selector de idioma">
+      <div class="header__lang-inline">
+        <a href="#esp" class="header__lang-link header__lang-link--active" aria-current="true">ESP</a>
+        <a href="#eng" class="header__lang-link">ENG</a>
+        <a href="#por" class="header__lang-link">POR</a>
+        <a href="#rus" class="header__lang-link">RUS</a>
+      </div>
+      <div class="header__lang-dropdown">
+        <button class="header__lang-toggle" id="lang-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu">
+          <span class="header__lang-current" id="lang-current">ESP</span>
+          <span class="header__lang-arrow" aria-hidden="true"></span>
+        </button>
+        <ul class="header__lang-menu" id="lang-menu" role="menu">
+          <li><a href="#esp" class="header__lang-link header__lang-link--active" aria-current="true" role="menuitem">ESP</a></li>
+          <li><a href="#eng" class="header__lang-link" role="menuitem">ENG</a></li>
+          <li><a href="#por" class="header__lang-link" role="menuitem">POR</a></li>
+          <li><a href="#rus" class="header__lang-link" role="menuitem">RUS</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <button
+      class="header__toggle"
+      id="header-toggle"
+      aria-expanded="false"
+      aria-controls="header-nav"
+      aria-label="Abrir menú"
+      type="button"
+    >
+      <span class="header__toggle-icon" aria-hidden="true"></span>
+      <span class="header__toggle-icon" aria-hidden="true"></span>
+      <span class="header__toggle-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-sticky);
+    background: transparent;
+    transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
+    padding: var(--space-12) 0;
+  }
+
+  .site-header--scrolled {
+    background: var(--color-bg-dark);
+    box-shadow: var(--shadow-subtle);
+    padding: var(--space-6) 0;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: var(--space-6);
+  }
+
+  .header__nav--left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  .header__monogram {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 var(--space-4);
+  }
+
+  .header__lang {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    position: relative;
+  }
+
+  .header__lang-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .header__lang-dropdown {
+    display: none;
+    position: relative;
+  }
+
+  .header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__nav-link {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-xs);
+    color: var(--color-cream);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    transition: opacity var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .header__nav-link:hover {
+    opacity: 0.6;
+  }
+
+  .header__monogram-img {
+    width: 100px;
+    height: auto;
+    transition: width var(--transition-base);
+  }
+
+  .site-header--scrolled .header__monogram-img {
+    width: 80px;
+  }
+
+  .header__lang-link {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-xs);
+    color: var(--color-cream);
+    text-decoration: none;
+    letter-spacing: var(--tracking-wide);
+    transition: opacity var(--transition-fast);
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+  .header__lang-link:hover {
+    opacity: 1;
+  }
+
+  .header__lang-link--active {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  .header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .header__toggle-icon {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-cream);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+
+  .header__close {
+    display: none;
+    position: absolute;
+    top: var(--space-5);
+    right: var(--space-5);
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__close span {
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    background: var(--color-cream);
+    border-radius: 2px;
+  }
+
+  .header__close span:first-child {
+    transform: rotate(45deg);
+  }
+
+  .header__close span:last-child {
+    transform: rotate(-45deg);
+  }
+
+  .header__lang-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-cream);
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    padding: 0;
+    gap: 6px;
+    align-items: center;
+    opacity: 0.85;
+  }
+
+  .header__lang-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--color-cream);
+    transition: transform var(--transition-base);
+  }
+
+  .header__lang-toggle[aria-expanded="true"] .header__lang-arrow {
+    transform: rotate(180deg);
+  }
+
+  .header__lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: var(--color-bg-dark);
+    border: 1px solid rgba(246, 230, 212, 0.15);
+    list-style: none;
+    padding: var(--space-2) 0;
+    gap: 0;
+    flex-direction: column;
+    z-index: var(--z-sticky);
+    min-width: 80px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .header__lang-menu.header__lang-menu--open {
+    display: flex;
+  }
+
+  .header__lang-menu li {
+    width: 100%;
+  }
+
+  .header__lang-menu .header__lang-link {
+    display: block;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .header__nav-list {
+      gap: var(--space-5);
+    }
+
+    .header__nav-link {
+      font-size: 11px;
+      letter-spacing: var(--tracking-wider);
+    }
+
+    .header__lang-inline {
+      gap: var(--space-3);
+    }
+
+    .header__monogram-img {
+      width: 85px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      padding: var(--space-8) 0;
+    }
+
+    .site-header--scrolled {
+      padding: var(--space-5) 0;
+    }
+
+    .header__inner {
+      padding: 0 20px;
+      gap: var(--space-3);
+    }
+
+    .header__toggle {
+      display: flex;
+    }
+
+    .header__monogram {
+      flex: 1;
+      padding: 0;
+      order: 2;
+    }
+
+    .header__monogram-img {
+      width: 70px;
+    }
+
+    .header__lang {
+      order: 3;
+      flex: 0 0 auto;
+    }
+
+    .header__lang-inline {
+      display: none;
+    }
+
+    .header__lang-dropdown {
+      display: block;
+    }
+
+    .header__lang-toggle {
+      display: flex;
+    }
+
+    .header__close {
+      display: flex;
+    }
+
+    .header__nav--left {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 360px;
+      background: var(--color-bg-dark);
+      padding: calc(var(--space-16) + var(--space-4)) var(--space-6) var(--space-8);
+      flex-direction: column;
+      align-items: flex-start;
+      transform: translateX(-100%);
+      transition: transform var(--transition-base);
+      box-shadow: var(--shadow-elevated);
+      overflow-y: auto;
+      z-index: calc(var(--z-sticky) - 1);
+    }
+
+    .header__nav--left.header__nav--open {
+      transform: translateX(0);
+    }
+
+    .header__nav-list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+      width: 100%;
+    }
+
+    .header__nav-link {
+      font-size: var(--text-base);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(246, 230, 212, 0.1);
+      width: 100%;
+      letter-spacing: var(--tracking-widest);
+    }
+
+    .header__nav-link:last-child {
+      border-bottom: none;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const header = document.getElementById('site-header');
+    const nav = document.getElementById('header-nav');
+    const toggle = document.getElementById('header-toggle');
+    const closeBtn = document.getElementById('header-close');
+    const langToggle = document.getElementById('lang-toggle');
+    const langMenu = document.getElementById('lang-menu');
+    const langCurrent = document.getElementById('lang-current');
+    let ticking = false;
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      const threshold = 100;
+      if (scrollY > threshold) {
+        header.classList.add('site-header--scrolled');
+      } else {
+        header.classList.remove('site-header--scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    function closeMenu() {
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('header__nav--open');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+      nav.classList.add('header__nav--open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) { closeMenu(); } else { openMenu(); }
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeMenu);
+      }
+
+      nav.querySelectorAll('.header__nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (nav.classList.contains('header__nav--open')) {
+            closeMenu();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('header__nav--open')) {
+          closeMenu();
+        }
+      });
+    }
+
+    // Language dropdown toggle
+    if (langToggle && langMenu) {
+      langToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const expanded = langToggle.getAttribute('aria-expanded') === 'true';
+        langToggle.setAttribute('aria-expanded', !expanded);
+        langMenu.classList.toggle('header__lang-menu--open', !expanded);
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!langMenu.contains(e.target) && !langToggle.contains(e.target)) {
+          langToggle.setAttribute('aria-expanded', 'false');
+          langMenu.classList.remove('header__lang-menu--open');
+        }
+      });
+    }
+
+    // Sync language selection across inline and dropdown
+    const allLangLinks = document.querySelectorAll('.header__lang-link');
+    allLangLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const langText = link.textContent.trim();
+        allLangLinks.forEach(function(l) {
+          if (l.textContent.trim() === langText) {
+            l.classList.add('header__lang-link--active');
+            l.setAttribute('aria-current', 'true');
+          } else {
+            l.classList.remove('header__lang-link--active');
+            l.removeAttribute('aria-current');
+          }
+        });
+        if (langCurrent) langCurrent.textContent = langText;
+        if (langToggle && langMenu) {
+          langToggle.setAttribute('aria-expanded', 'false');
+          langMenu.classList.remove('header__lang-menu--open');
+        }
+      });
+    });
+  })();
+</script>

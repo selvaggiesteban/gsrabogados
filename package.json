@@ -1,0 +1,20 @@
+{
+  "name": "estudiogsr-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "prettier": "^3.2.0",
+    "prettier-plugin-astro": "^0.13.0"
+  }
+}
