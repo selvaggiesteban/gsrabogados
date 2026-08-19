@@ -1,0 +1,1320 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { languages, defaultLang } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const langs = Object.keys(languages);
+  return langs.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = await useTranslations(lang);
+
+const title = t.get('home.title');
+const description = t.get('home.description');
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <!-- ===== 1. HERO ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <img src="/images/asset-hero.webp" alt="" class="hero__bg" loading="eager" fetchpriority="high" width="1920" height="1080" />
+    <div class="hero__content section__inner">
+      <h1 id="hero-title" class="hero__title">
+        <span class="hero__title-line hero__title-line-1">Cada caso es único.</span>
+        <span class="hero__title-line hero__title-line-2">Lo defendemos como tal.</span>
+      </h1>
+    </div>
+    <div class="hero__arte" aria-hidden="true">
+      <img src="/images/garcete-suarez-ronco.svg" alt="" class="hero__arte-img" width="567" height="48" />
+    </div>
+  </section>
+
+  <!-- ===== 2. EL ESTUDIO ===== -->
+  <section id="el-estudio" class="section section--bg-oscuro scroll-animate" aria-labelledby="estudio-title">
+    <div class="section__inner estudio__grid">
+      <div class="estudio__slider scroll-animate delay-1" id="estudio-slider">
+        <div class="estudio__slides">
+          <div class="estudio__slide estudio__slide--active" data-slide="0">
+            <p class="estudio__slide-text">El derecho penal es nuestro núcleo. Actuamos en defensa de imputados y en representación de querellantes ante los fueros ordinario y federal, con trayectoria en causas de alta exposición y exigencia técnica.</p>
+          </div>
+          <div class="estudio__slide" data-slide="1">
+            <p class="estudio__slide-text">La especialización penal no nos impide dar una respuesta jurídica completa. Contamos con experiencia en derecho civil, comercial y laboral para acompañar a nuestros clientes más allá del fuero penal, cubriendo el espectro de sus necesidades con el mismo nivel de exigencia.</p>
+          </div>
+          <div class="estudio__slide" data-slide="2">
+            <p class="estudio__slide-text">Ejercemos el derecho con responsabilidad y cercanía. Cada cliente tiene acceso directo a los socios del estudio, recibe información clara sobre el estado de su causa, garantizando que siempre sepa dónde está parado y qué viene después.</p>
+          </div>
+        </div>
+        <div class="estudio__dots" role="tablist" aria-label="Slides del estudio">
+          <button class="estudio__dot estudio__dot--active" data-target="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+          <button class="estudio__dot" data-target="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+          <button class="estudio__dot" data-target="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+        </div>
+      </div>
+      <div class="estudio__image scroll-animate delay-2">
+        <img src="/images/asset-el-estudio.webp" alt="Estudio jurídico Garcete Suárez Ronco" class="estudio__img" loading="lazy" width="800" height="800" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. ÁREAS DE PRÁCTICA ===== -->
+  <section id="areas" class="section section--bg-claro scroll-animate">
+    <div class="section__inner">
+      <header class="section__header section__header--center scroll-animate delay-1">
+        <p class="section__label">Áreas de práctica</p>
+      </header>
+      <div class="accordion" id="accordion-areas">
+        <div class="accordion__item accordion__item--open scroll-animate delay-1">
+          <button class="accordion__header" type="button" aria-expanded="true" aria-controls="area-1">
+            <span class="accordion__number">01.</span>
+            <span class="accordion__title">Derecho Penal Ordinario</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel" id="area-1">
+            <p class="accordion__text">Actuamos como defensa y como querella en toda clase de delitos ante el fuero penal de la Ciudad y la Provincia de Buenos Aires. Nuestra práctica abarca delitos contra el patrimonio, la integridad física y sexual, ciberdelitos -entre otros-, con actuación en todas las instancias del proceso.</p>
+          </div>
+        </div>
+        <div class="accordion__item scroll-animate delay-2">
+          <button class="accordion__header" type="button" aria-expanded="false" aria-controls="area-2">
+            <span class="accordion__number">02.</span>
+            <span class="accordion__title">Derecho Penal Federal</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel" id="area-2">
+            <p class="accordion__text">Con matrícula habilitante en el fuero federal, intervenimos en causas de alta complejidad ante la justicia federal en todo el territorio nacional, con especial expertise en delitos vinculados a estupefacientes y la administración pública.</p>
+          </div>
+        </div>
+        <div class="accordion__item scroll-animate delay-3">
+          <button class="accordion__header" type="button" aria-expanded="false" aria-controls="area-3">
+            <span class="accordion__number">03.</span>
+            <span class="accordion__title">Derecho Penal Económico y de Empresa</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel" id="area-3">
+            <p class="accordion__text">Asesoramos y representamos a personas físicas y jurídicas en causas que involucran delitos económicos: defraudaciones, evasión fiscal, lavado de activos, delitos vinculados a criptoactivos y responsabilidad penal empresaria. Acompañamos también en programas de compliance para prevenir la exposición penal de empresas y sus directivos.</p>
+          </div>
+        </div>
+        <div class="accordion__item scroll-animate delay-4">
+          <button class="accordion__header" type="button" aria-expanded="false" aria-controls="area-4">
+            <span class="accordion__number">04.</span>
+            <span class="accordion__title">Ejecución Penal</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel" id="area-4">
+            <p class="accordion__text">Intervenimos en la etapa de ejecución de la pena para garantizar el pleno ejercicio de los derechos del condenado, tramitando todo instituto previsto en el régimen de progresividad penitenciaria.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. LOS SOCIOS ===== -->
+  <section id="socios" class="section section--bg-claro socios scroll-animate" aria-labelledby="socios-title">
+    <div class="socios__images">
+      <img src="/images/abogado-matias-garcete-suarez.webp" alt="Matías Alejandro Garcete Suárez" class="socios__img" loading="lazy" width="600" height="800" />
+      <img src="/images/abogado-benjamin-ronco.webp" alt="Benjamín Ronco" class="socios__img" loading="lazy" width="600" height="800" />
+    </div>
+    <div class="section__inner socios__inner">
+      <header class="section__header section__header--center scroll-animate delay-1">
+        <p id="socios-title" class="section__label">Socios</p>
+      </header>
+      <div class="socios__grid">
+        <div class="socio__content scroll-animate delay-2">
+          <h3 class="socio__nombre">MATÍAS ALEJANDRO GARCETE SUÁREZ</h3>
+          <p class="socio__rol">FUNDADOR</p>
+          <p class="socio__bio">Egresado de la Universidad de Buenos Aires, Matías orientó su práctica hacia la litigación penal estratégica en casos de alta complejidad. Su enfoque se distingue por el diseño de soluciones jurídicas precisas, con especial foco en la negociación y la construcción de estrategias que anticipan cada movimiento del proceso. Su trayectoria incluye la representación de referentes del espectáculo, la televisión y la vida pública, lo que forjó en él una capacidad singular para gestionar causas de alta exposición con la discreción y el rigor que cada situación demanda.</p>
+          <a href="https://www.linkedin.com/in/dr-mat%C3%ADas-a-garcete-su%C3%A1rez-8b878756/" class="socio__linkedin" aria-label="LinkedIn Matías Garcete Suárez" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+          </a>
+        </div>
+        <div class="socios__divider" aria-hidden="true"></div>
+        <div class="socio__content scroll-animate delay-3">
+          <h3 class="socio__nombre">BENJAMÍN <br /> RONCO</h3>
+          <p class="socio__rol">FUNDADOR</p>
+          <p class="socio__bio">Egresado de la Universidad de Buenos Aires y Maestrando en Derecho Penal por la Universidad de San Andrés, Benjamín construyó una trayectoria de más de una década en el fuero Criminal y Correccional Federal, interviniendo en causas de alta complejidad y repercusión. Especialista en estupefacientes y delitos federales, con una destacada actuación en debate oral, representa a sus clientes con el rigor técnico y la convicción que solo da la experiencia acumulada en las instancias más exigentes del sistema penal.</p>
+          <a href="https://www.linkedin.com/in/benjaminronco/" class="socio__linkedin" aria-label="LinkedIn Benjamín Ronco" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. COBERTURA INTERDISCIPLINARIA ===== -->
+  <section id="cobertura" class="section section--bg-oscuro scroll-animate" aria-labelledby="cobertura-title">
+    <div class="section__inner cobertura__inner">
+      <header class="section__header section__header--center scroll-animate delay-1">
+        <p class="section__label cobertura__label">Cobertura interdisciplinaria</p>
+      </header>
+      <p class="cobertura__intro scroll-animate delay-2 visible">El Estudio cuenta, para su desempeño, con una cobertura interdisciplinaria que permite abordar cada caso con rigor técnico y precisión, integrando conocimientos especiales de otras disciplinas cuando la causa así lo requiere</p>
+      <div class="cobertura__grid scroll-animate delay-3">
+        <article class="cobertura__card">
+          <h3 class="cobertura__area">Auditoría<br />y Pericias Contables</h3>
+          <p class="cobertura__nombre">Cra. Florencia Ronco</p>
+          <p class="cobertura__descripcion">Estudio Ronco y Asociados, Consultores Contables</p>
+          <a href="https://www.linkedin.com/in/florencia-ronco-62122037" target="_blank" rel="noopener noreferrer" class="cobertura__social" aria-label="LinkedIn Cra. Florencia Ronco">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+         </a>
+       </article>
+        <article class="cobertura__card">
+          <h3 class="cobertura__area">Pericias<br />Caligráficas</h3>
+          <p class="cobertura__nombre">José María Buitrago</p>
+          <p class="cobertura__descripcion">Calígrafo Público Nacional,<br />ex Presidente del Colegio de Calígrafos Públicos<br />de la Ciudad de Buenos Aires</p>
+          <a href="mailto:buitragojosemaria@gmail.com" class="cobertura__social" aria-label="Email José María Buitrago">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+         </a>
+       </article>
+        <article class="cobertura__card">
+          <h3 class="cobertura__area">Medicina<br />Legal</h3>
+          <p class="cobertura__nombre">Dr. Alejandro A. Basile</p>
+          <p class="cobertura__descripcion">Profesor Titular Emérito de Medicina Legal, Facultad de Medicina (USAL). Ex Director de la Carrera de Médicos Legistas, Departamento de Posgrado (USAL). Ex Profesor Regular de Medicina Legal y Deontología Médica, Facultad de Medicina (UBA</p>
+          <a href="https://editorialelateneo.com.ar/autor/alejandro-a--basile" target="_blank" rel="noopener noreferrer" class="cobertura__social" aria-label="Editorial El Ateneo Dr. Basile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+         </a>
+       </article>
+        <article class="cobertura__card">
+          <h3 class="cobertura__area">Análisis e Investigación<br />en Activos Digitales</h3>
+          <p class="cobertura__nombre">Nicolás Bausada</p>
+          <p class="cobertura__descripcion">Investigador Cripto AML especializado en trazabilidad de criptoactivos aplicado a causas judiciales. Certificado por Chainalysis (Reactors Certification), TRM Labs y GAFILAT. Docente invitado en ITBA, UCASAL y UBA</p>
+          <a href="[Pendiente]" target="_blank" rel="noopener noreferrer" class="cobertura__social" aria-label="LinkedIn Nicolás Bausada">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+         </a>
+          <p class="cobertura__subnombre">Denis Banchero</p>
+          <p class="cobertura__subdescripcion">Investigador de criptomonedas. Miembro del Grupo de Expertos en Lavado de Dinero y Activos Virtuales de la UNODC y del Grupo de Criptomonedas del Coño Sur del Departamento de Justicia de EE.UU</p>
+          <a href="[Pendiente]" target="_blank" rel="noopener noreferrer" class="cobertura__social" aria-label="LinkedIn Denis Banchero">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+         </a>
+       </article>
+        <article class="cobertura__card">
+          <h3 class="cobertura__area">Psicología<br />Forense</h3>
+          <p class="cobertura__nombre">Lic. Liliana Sedler</p>
+          <p class="cobertura__descripcion">(M.N. 13.454). Licenciada en Psicología, especialista en violencia familiar y abuso sexual infantil. Máster en Psicología Forense y Valoración del Daño Psíquico. Diplomada en Estrategias de Defensa en Casos de Abuso Sexual, Abordaje Jurídico y Psicológico y Análisis Crítico de la Perspectiva de género</p>
+          <a href="[Pendiente]" target="_blank" rel="noopener noreferrer" class="cobertura__social" aria-label="LinkedIn Lic. Liliana Sedler">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+         </a>
+       </article>
+        <article class="cobertura__card">
+          <h3 class="cobertura__area">Traducción e<br />Interpretación en Inglés</h3>
+          <p class="cobertura__nombre">[Pendiente</p>
+          <p class="cobertura__descripcion">[Pendiente — descripción del traductor</p>
+       </article>
+     </div>
+   </div>
+ </section>
+
+  <!-- ===== 6. ESTUDIOS ASOCIADOS ===== -->
+  <section id="estudios-asociados" class="section section--bg-claro estudios-asociados scroll-animate">
+    <div class="estudios-asociados__images scroll-animate delay-1">
+      <img src="/images/asset-estudios-asociados-1.webp" alt="" class="estudios-asociados__img" loading="lazy" width="600" height="600" />
+      <img src="/images/asset-estudios-asociados-2.webp" alt="" class="estudios-asociados__img" loading="lazy" width="600" height="600" />
+    </div>
+    <div class="section__inner estudios-asociados__inner">
+      <header class="section__header section__header--center scroll-animate delay-2">
+        <p class="section__label">Estudios asociados</p>
+      </header>
+    </div>
+    <div class="estudios-carousel scroll-animate delay-3">
+      <div class="estudios-carousel__track" id="estudios-track">
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+        <div class="estudios-carousel__item"><img src="/images/garcete-suarez-ronco.svg" alt="Estudio asociado" class="estudios-carousel__logo" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. CONTACTO ===== -->
+  <section id="contacto" class="contacto scroll-animate" aria-labelledby="contacto-title">
+    <img src="/images/fondo-oscuro.webp" alt="" class="contacto__bg" loading="lazy" width="1920" height="1080" />
+    <div class="contacto__overlay" aria-hidden="true"></div>
+    <div class="section__inner contacto__inner">
+      <header class="section__header section__header--center scroll-animate delay-1">
+        <p class="section__label">Contacto</p>
+      </header>
+      <div class="scroll-animate delay-2">
+        <div class="contacto__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.734!2d-58.376!3d-34.598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccabcea6e8d21%3A0x6c0c1c8e3e3e3e3e!2sCerrito%201054%2C%20C1010%20AAB%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1718000000000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación: Cerrito 1054, 1° piso, Ciudad de Buenos Aires">
+          </iframe>
+        </div>
+      </div>
+      <div class="contacto__form-wrapper scroll-animate delay-3">
+        <h2 id="contacto-title" class="contacto__title">¿En qué podemos ayudarte?</h2>
+        <form id="contact-form" class="contacto__form" action="#" method="POST" aria-label="Formulario de contacto">
+          <div class="contacto__field">
+            <label for="nombre" class="contacto__label">Nombre y Apellido</label>
+            <input type="text" id="nombre" name="nombre" class="contacto__input" required autocomplete="name" />
+          </div>
+          <div class="contacto__field">
+            <label for="email" class="contacto__label">Email</label>
+            <input type="email" id="email" name="email" class="contacto__input" required autocomplete="email" />
+          </div>
+          <div class="contacto__field">
+            <label for="mensaje" class="contacto__label">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" class="contacto__input contacto__textarea" required></textarea>
+          </div>
+          <div class="contacto__field contacto__field--accept">
+            <label class="contacto__accept">
+              <input type="checkbox" id="accept" name="accept" class="contacto__checkbox" required />
+              <span class="contacto__accept-text">He leído y acepto las <a href="/privacidad" class="contacto__link">Políticas de Privacidad</a></span>
+            </label>
+          </div>
+          <div class="contacto__field" style="display:none">
+            <input type="text" name="bot_field" id="bot_field" class="contacto__input" autocomplete="off" tabindex="-1">
+          </div>
+          <button type="submit" id="submit-btn" class="contacto__btn">ENVIAR</button>
+          <div id="form-response" class="contacto__response" style="display:none"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <img src="/images/fondo-oscuro.webp" alt="" class="footer__bg" loading="lazy" width="1920" height="600" />
+    <div class="footer__overlay" aria-hidden="true"></div>
+    <div class="footer__inner">
+      <img src="/images/garcete-suarez-ronco-abogados-contacto.webp" alt="Garcete Suárez Ronco Abogados" class="footer__logo-img" loading="lazy" width="800" height="500" />
+      <div class="footer__arte" aria-hidden="true">
+        <img src="/images/asset-footer-gsr.svg" alt="" class="footer__arte-img" width="567" height="91" />
+     </div>
+      <div class="footer__info">
+        <p class="footer__info-item"><a href="mailto:info@gsrabogados.com.ar" class="footer__info-link">info@gsrabogados.com.ar</a></p>
+        <p class="footer__info-item">CERRITO 1054 1° — CIUDAD AUTÓNOMA DE BUENOS AIRES</p>
+        <p class="footer__info-item footer__copyright">© 2026 Garcete Suárez Ronco Abogados. Todos los derechos reservados.</p>
+      </div>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/gsr.abogados/" class="footer__social-link" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/garcete-su%C3%A1rez-ronco-abogados/" class="footer__social-link" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.144 1.144 0 01-1.144-1.144 1.144 1.144 0 012.288 0c0 .632-.512 1.144-1.144 1.144zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style is:global>
+  /* ===== IMAGENES DE FONDO POR SECCION ===== */
+  .section--bg-oscuro {
+    background-image: linear-gradient(rgba(29, 20, 18, 0.55), rgba(29, 20, 18, 0.55)), url('/images/fondo-oscuro.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .section--bg-claro {
+    background-image: linear-gradient(rgba(246, 230, 212, 0.65), rgba(246, 230, 212, 0.65)), url('/images/fondo-claro.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .hero__title {
+    max-width: 992px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__title-line {
+    font-weight: 200 !important;
+  }
+
+  /* ===== 2. EL ESTUDIO - SLIDER ===== */
+  .estudio__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  .estudio__slider {
+    position: relative;
+  }
+
+  .estudio__slides {
+    position: relative;
+    min-height: 220px;
+  }
+
+  .estudio__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+  }
+
+  .estudio__slide--active {
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+  }
+
+  .estudio__slide-text {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: 32px;
+    line-height: 1.3em;
+    color: var(--color-cream);
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .estudio__slide-text {
+      font-size: 16px;
+    }
+  }
+
+  .estudio__dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+
+  .estudio__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 0;
+    background: rgba(246, 230, 212, 0.3);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--transition-fast);
+  }
+
+  .estudio__dot--active {
+    background: var(--color-cream);
+  }
+
+  .estudio__image {
+    overflow: hidden;
+  }
+
+  .estudio__img {
+    width: 100%;
+    max-height: 500px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .estudio__img {
+      height: 300px;
+      max-height: 300px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .estudio__grid {
+      grid-template-columns: 1fr;
+    }
+    .estudio__image {
+      order: -1;
+    }
+  }
+
+  /* ===== 3. AREAS - ACCORDION ===== */
+  .section__header--center {
+    text-align: center;
+  }
+
+  .accordion {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    #areas {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .accordion__item {
+    --accordion-offset: calc(32px + var(--space-6));
+    border-bottom: 2px solid rgba(29, 20, 18, 0.1);
+  }
+
+  .accordion__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    width: 100%;
+    padding: var(--space-6) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .accordion__number {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-size: var(--text-lg);
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    min-width: 32px;
+  }
+
+  .accordion__title {
+    flex: 1;
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-size: 38px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-dark-brown);
+  }
+
+  .accordion__icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    flex-shrink: 0;
+    border: 1px solid var(--color-dark-brown);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .accordion__icon::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--color-dark-brown);
+    border-bottom: 1.5px solid var(--color-dark-brown);
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform var(--transition-base);
+  }
+
+  .accordion__item--open .accordion__icon::before {
+    transform: translateY(2px) rotate(-135deg);
+  }
+
+  .accordion__panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+
+  .accordion__item--open .accordion__panel {
+    max-height: 600px;
+  }
+
+  .accordion__text {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: 16px;
+    color: var(--color-dark-brown);
+    text-align: justify;
+    hyphens: auto;
+    padding: var(--space-3) 0 var(--space-6) var(--accordion-offset);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .accordion__title {
+      font-size: 26px;
+    }
+    .accordion__number {
+      font-size: 15px;
+      min-width: 28px;
+    }
+    .accordion__item {
+      --accordion-offset: calc(28px + var(--space-6));
+    }
+    .accordion__text {
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .accordion__icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  /* ===== 4. LOS SOCIOS ===== */
+  .socios {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .socios__inner {
+    text-align: center;
+    padding: 0 var(--section-padding-x-desktop);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .socios__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 var(--space-12) 0;
+  }
+
+  .socios__img {
+    width: 100%;
+    max-height: 800px;
+    height: 800px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .socios__title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-3xl);
+    color: var(--color-dark-brown);
+    letter-spacing: var(--tracking-caption);
+    margin-bottom: var(--space-12);
+  }
+
+  .socios__grid {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .socio__nombre {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-size: 44px;
+    color: var(--color-dark-brown);
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-2);
+  }
+
+  .socio__rol {
+    font-family: var(--font-secondary);
+    font-weight: 200;
+    font-size: 24px;
+    color: #1D1412;
+    letter-spacing: var(--tracking-caption);
+    margin-bottom: var(--space-4);
+  }
+
+  .socio__bio {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: 16px;
+    line-height: var(--leading-relaxed);
+    color: var(--color-dark-brown);
+    text-align: center;
+  }
+
+  .socio__linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--space-5);
+    color: #1D1412;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+  }
+
+  .socio__linkedin:hover {
+    opacity: 1;
+  }
+
+  .socio__linkedin svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .socios__divider {
+    width: 2px;
+    background: rgba(29, 20, 18, 0.2);
+    align-self: stretch;
+  }
+
+  @media (max-width: 768px) {
+    .socios__images {
+      grid-template-columns: 1fr;
+    }
+    .socios__img {
+      height: 500px;
+    }
+    .socios__grid {
+      grid-template-columns: 1fr;
+    }
+    .socios__divider {
+      display: none;
+    }
+  }
+
+  /* ===== 5. COBERTURA ===== */
+  .cobertura__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+  }
+
+  .cobertura__label {
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .cobertura__intro {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: 16px;
+    line-height: var(--leading-relaxed);
+    color: var(--color-cream);
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+    text-align: center;
+    opacity: 0.85;
+  }
+
+  .cobertura__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .cobertura__card {
+    text-align: center;
+    padding: var(--space-8) var(--space-6);
+    border-bottom: 1px solid rgba(246, 230, 212, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cobertura__area {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 24px;
+    color: var(--color-cream);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-3);
+  }
+
+  .cobertura__nombre {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 16px;
+    color: #f6e6d4cc;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-2);
+  }
+
+  .cobertura__subnombre {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: 16px;
+    color: #f6e6d4cc;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+
+  .cobertura__descripcion {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: 16px;
+    line-height: var(--leading-relaxed);
+    color: #f6e6d4cc;
+    margin: 0 0 var(--space-4);
+  }
+
+  .cobertura__subdescripcion {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: 16px;
+    line-height: var(--leading-relaxed);
+    color: #f6e6d4cc;
+    margin: 0 0 var(--space-4);
+  }
+
+  .cobertura__social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(246, 230, 212, 0.6);
+    opacity: 0.8;
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+  }
+
+  .cobertura__social:hover {
+    opacity: 1;
+    color: var(--color-cream);
+  }
+
+  .cobertura__social svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .cobertura__grid {
+      grid-template-columns: 1fr;
+    }
+    .cobertura__card:nth-child(odd) {
+      border-right: none;
+    }
+  }
+
+  /* ===== 6. ESTUDIOS ASOCIADOS ===== */
+  .estudios-asociados {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .estudios-asociados__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0 0 var(--space-12) 0;
+  }
+
+  .estudios-asociados__img {
+    width: 100%;
+    max-height: 600px;
+    height: 600px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .estudios-asociados__images {
+      grid-template-columns: 1fr;
+    }
+    .estudios-asociados__img {
+      height: 400px;
+    }
+  }
+
+  .estudios-asociados__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--section-padding-x-desktop);
+  }
+
+  .estudios-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: var(--space-12) 0;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .estudios-carousel__track {
+    display: flex;
+    gap: var(--space-8);
+    width: max-content;
+    animation: carousel-scroll 30s linear infinite;
+  }
+
+  .estudios-carousel__item {
+    flex: 0 0 auto;
+    width: 20vw;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(29, 20, 18, 0.04);
+    border: 1px solid rgba(29, 20, 18, 0.08);
+    padding: var(--space-6);
+  }
+
+  .estudios-carousel__logo {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: opacity var(--transition-base), filter var(--transition-base);
+  }
+
+  .estudios-carousel__item:hover .estudios-carousel__logo {
+    opacity: 1;
+    filter: grayscale(0%);
+  }
+
+  @keyframes carousel-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 768px) {
+    .estudios-carousel__item {
+      width: 40vw;
+      height: 120px;
+    }
+    .estudios-carousel__track {
+      animation-duration: 20s;
+    }
+  }
+
+  /* ===== 7. CONTACTO ===== */
+  .contacto {
+    position: relative;
+    padding: 0;
+  }
+
+  .contacto__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .contacto__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(29, 20, 18, 0.7);
+    z-index: 1;
+  }
+
+  .contacto__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    padding: var(--space-20) var(--section-padding-x-desktop);
+    min-height: 600px;
+  }
+
+  .contacto__inner .section__header {
+    grid-column: 1 / -1;
+    margin-bottom: var(--space-8);
+  }
+
+  .contacto__map {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+  }
+
+  .contacto__map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    border: 0;
+  }
+
+  .contacto__title {
+    font-family: var(--font-primary);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-2xl);
+    color: var(--color-cream);
+    margin-bottom: var(--space-8);
+  }
+
+  .contacto__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .contacto__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contacto__label {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-xs);
+    color: var(--color-cream);
+    margin-bottom: var(--space-2);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .contacto__input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(246, 230, 212, 0.4);
+    color: var(--color-cream);
+    font-family: var(--font-secondary);
+    font-size: var(--text-base);
+    padding: var(--space-2) 0;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .contacto__input:focus {
+    border-bottom-color: #B8893B;
+  }
+
+  .contacto__textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .contacto__btn {
+    background: transparent;
+    border: 1px solid var(--color-cream);
+    border-radius: var(--radius-full);
+    color: var(--color-cream);
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-caption);
+    padding: var(--space-3) var(--space-8);
+    cursor: pointer;
+    align-self: center;
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .contacto__btn:hover {
+    background: var(--color-cream);
+    color: var(--color-dark-brown);
+  }
+
+  .contacto__field--accept {
+    margin-top: var(--space-2);
+  }
+
+  .contacto__accept {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-sm);
+    color: var(--color-cream);
+    opacity: 0.85;
+  }
+
+  .contacto__checkbox {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    cursor: pointer;
+    accent-color: #B8893B;
+  }
+
+  .contacto__accept-text {
+    line-height: var(--leading-normal);
+  }
+
+  .contacto__link {
+    color: #B8893B;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: opacity var(--transition-fast);
+  }
+
+  .contacto__link:hover {
+    opacity: 0.7;
+  }
+
+  .contacto__info {
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(246, 230, 212, 0.15);
+  }
+
+  .contacto__info-item {
+    margin-bottom: var(--space-4);
+  }
+
+  .contacto__info-label {
+    display: block;
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+    color: #B8893B;
+    letter-spacing: var(--tracking-caption);
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+  }
+
+  .contacto__info-value {
+    font-family: var(--font-secondary);
+    font-size: var(--text-sm);
+    color: var(--color-cream);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .contacto__inner {
+      grid-template-columns: 1fr;
+      padding: var(--space-12) var(--section-padding-x-mobile);
+    }
+    .contacto__map {
+      min-height: 300px;
+    }
+    .contacto__map iframe {
+      min-height: 300px;
+    }
+  }
+
+  .contacto__response {
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-size: var(--text-sm);
+    color: var(--color-cream);
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    border-radius: var(--radius-full);
+  }
+  .contacto__response--success {
+    background: rgba(46, 125, 50, 0.3);
+    border: 1px solid rgba(46, 125, 50, 0.5);
+  }
+  .contacto__response--error {
+    background: rgba(183, 28, 28, 0.3);
+    border: 1px solid rgba(183, 28, 28, 0.5);
+  }
+  .contacto__btn--loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ===== 8. FOOTER ===== */
+  .footer {
+    position: relative;
+    padding: 0;
+    background: var(--color-bg-dark);
+  }
+
+  .footer__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .footer__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(29, 20, 18, 0.92);
+    z-index: 1;
+  }
+
+  .footer__inner {
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    padding: var(--space-16) var(--section-padding-x-desktop) var(--space-6);
+  }
+
+  .footer__logo-img {
+    width: auto;
+    max-width: 100%;
+    max-height: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .footer__arte {
+    margin: var(--space-10) 0 var(--space-12);
+    text-align: center;
+  }
+
+  .footer__arte-img {
+    width: 60%;
+    max-width: 680px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .footer__arte-img {
+      width: 80%;
+    }
+  }
+
+  .footer__info {
+    margin-bottom: var(--space-10);
+  }
+
+  .footer__info-item {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-sm);
+    color: var(--color-cream);
+    opacity: 0.8;
+    margin: 0 0 var(--space-2);
+    line-height: var(--leading-normal);
+  }
+
+  .footer__info-link {
+    color: var(--color-cream);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer__info-link:hover {
+    color: #B8893B;
+  }
+
+  .footer__social {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+
+  .footer__social-link {
+    color: var(--color-cream);
+    transition: opacity var(--transition-fast);
+  }
+
+  .footer__social-link:hover {
+    opacity: 0.7;
+  }
+
+  .footer__copyright {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    font-size: var(--text-xs);
+    color: var(--color-cream);
+    opacity: 0.6;
+    margin: 0;
+  }
+</style>
+
+<script>
+  // Slider del Estudio
+  (function() {
+    const dots = document.querySelectorAll('.estudio__dot');
+    const slides = document.querySelectorAll('.estudio__slide');
+    if (!dots.length || !slides.length) return;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('estudio__slide--active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('estudio__dot--active', i === index);
+        dot.setAttribute('aria-selected', i === index);
+      });
+    }
+
+    let currentIndex = 0;
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const target = parseInt(dot.dataset.target);
+        currentIndex = target;
+        showSlide(target);
+      });
+    });
+
+    // Auto-advance cada 6 segundos
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 6000);
+  })();
+
+  // Accordion Areas
+  (function() {
+    const headers = document.querySelectorAll('.accordion__header');
+    headers.forEach((header) => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isOpen = item.classList.contains('accordion__item--open');
+        header.setAttribute('aria-expanded', !isOpen);
+        item.classList.toggle('accordion__item--open');
+      });
+    });
+  })();
+
+  // Contact Form Logic
+  (function() {
+    const form = document.getElementById('contact-form');
+    const btn = document.getElementById('submit-btn');
+    const responseDiv = document.getElementById('form-response');
+    if (!form || !btn || !responseDiv) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot check
+      const botField = document.getElementById('bot_field').value;
+      if (botField) return;
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // UI State: Loading
+      btn.classList.add('contacto__btn--loading');
+      btn.textContent = 'ENVIANDO...';
+      responseDiv.style.display = 'none';
+
+      try {
+        const response = await fetch('/bridge.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          responseDiv.textContent = result.message || 'Mensaje enviado con éxito. Nos contactaremos a la brevedad.';
+          responseDiv.className = 'contacto__response contacto__response--success';
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Hubo un error al enviar el mensaje.');
+        }
+      } catch (error) {
+        responseDiv.textContent = error.message || 'Error de conexión. Por favor, intente más tarde.';
+        responseDiv.className = 'contacto__response contacto__response--error';
+      } finally {
+        btn.classList.remove('contacto__btn--loading');
+        btn.textContent = 'ENVIAR';
+        responseDiv.style.display = 'block';
+      }
+    });
+  })();
+
+</script>

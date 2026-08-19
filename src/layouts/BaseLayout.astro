@@ -2,18 +2,29 @@
 // Base layout for GSR Abogados
 import '../styles/design-system.css';
 import Header from '../components/Header.astro';
+import seoData from '../data/seo.json';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  lang?: string;
 }
 
-const { title, description = 'Garcete Suárez Ronco - Estudio Jurídico Penal en Buenos Aires' } = Astro.props;
+const {
+  title: propTitle,
+  description: propDescription,
+  lang = 'es'
+} = Astro.props;
+
+const seo = seoData[lang] || seoData['es'];
+const title = propTitle || seo.title;
+const description = propDescription || seo.description;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = '/images/panorama.webp';
 ---
 
 <!doctype html>
-<html lang="es-AR">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,9 +36,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;600&display=swap" />
@@ -35,7 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
   </head>
   <body class="antialiased">
-    <Header />
+    <Header lang={lang} />
     <main>
       <slot />
     </main>

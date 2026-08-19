@@ -1,5 +1,12 @@
 ---
 // Header component - matches reference design
+import { languages } from '../i18n/ui';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
 ---
 
 <header class="site-header" id="site-header" role="banner">
@@ -10,34 +17,47 @@
         <span aria-hidden="true"></span>
       </button>
       <ul class="header__nav-list">
-        <li><a href="#areas" class="header__nav-link">Áreas de práctica</a></li>
-        <li><a href="#socios" class="header__nav-link">Socios</a></li>
-        <li><a href="#cobertura" class="header__nav-link">Cobertura interdisciplinaria</a></li>
-        <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
+        <li><a href={`/${lang}#areas`} class="header__nav-link">Áreas de práctica</a></li>
+        <li><a href={`/${lang}#socios`} class="header__nav-link">Socios</a></li>
+        <li><a href={`/${lang}#cobertura`} class="header__nav-link">Cobertura interdisciplinaria</a></li>
+        <li><a href={`/${lang}#contacto`} class="header__nav-link">Contacto</a></li>
       </ul>
     </nav>
 
-    <a href="/" class="header__monogram" aria-label="Garcete Suárez Ronco - Inicio">
+    <a href={`/${lang}`} class="header__monogram" aria-label="Garcete Suárez Ronco - Inicio">
       <img src="/images/monograma.svg" alt="GSR" class="header__monogram-img" width="100" height="63" />
     </a>
 
     <div class="header__lang" id="header-lang" role="group" aria-label="Selector de idioma">
       <div class="header__lang-inline">
-        <a href="#esp" class="header__lang-link header__lang-link--active" aria-current="true">ESP</a>
-        <a href="#eng" class="header__lang-link">ENG</a>
-        <a href="#por" class="header__lang-link">POR</a>
-        <a href="#rus" class="header__lang-link">RUS</a>
+        {Object.entries(languages).map(([code, label]) => (
+          <a
+            href={`/${code}`}
+            class={`header__lang-link ${lang === code ? 'header__lang-link--active' : ''}`}
+            aria-current={lang === code ? 'true' : undefined}
+          >
+            {code.toUpperCase()}
+          </a>
+        ))}
       </div>
       <div class="header__lang-dropdown">
         <button class="header__lang-toggle" id="lang-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu">
-          <span class="header__lang-current" id="lang-current">ESP</span>
+          <span class="header__lang-current" id="lang-current">{languages[lang] || 'ESP'}</span>
           <span class="header__lang-arrow" aria-hidden="true"></span>
         </button>
         <ul class="header__lang-menu" id="lang-menu" role="menu">
-          <li><a href="#esp" class="header__lang-link header__lang-link--active" aria-current="true" role="menuitem">ESP</a></li>
-          <li><a href="#eng" class="header__lang-link" role="menuitem">ENG</a></li>
-          <li><a href="#por" class="header__lang-link" role="menuitem">POR</a></li>
-          <li><a href="#rus" class="header__lang-link" role="menuitem">RUS</a></li>
+          {Object.entries(languages).map(([code, label]) => (
+            <li>
+              <a
+                href={`/${code}`}
+                class={`header__lang-link ${lang === code ? 'header__lang-link--active' : ''}`}
+                aria-current={lang === code ? 'true' : undefined}
+                role="menuitem"
+              >
+                {code.toUpperCase()}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
