@@ -2,5 +2,85 @@
   "home": {
     "title": "Garcete Suárez Ronco - Advogados Criminalistas em Buenos Aires",
     "description": "Escritório de advocacia especializado em Direito Penal Ordinário, Federal, Econômico e Execução Penal. Cerrito 1054, CABA."
+  },
+  "hero": {
+    "line1": "Cada caso é único.",
+    "line2": "Defendemo-lo como tal."
+  },
+  "estudio": {
+    "slide1": "O direito penal é o nosso núcleo. Atuamos na defesa de imputados e na representação de querelantes perante os tribunais ordinários e federais, com trajetória em causas de alta exposição e exigência técnica.",
+    "slide2": "A especialização penal não nos impede de dar uma resposta jurídica completa. Contamos com experiência em direito civil, comercial e laboral para acompanhar os nossos clientes para além do tribunal penal, cobrindo o espectro das suas necessidades com o mesmo nível de exigência.",
+    "slide3": "Exercemos o direito com responsabilidade e proximidade. Cada cliente tem acesso direto aos sócios do escritório, recebe informações claras sobre o estado da sua causa, garantindo que saiba sempre onde se encontra e o que vem a seguir.",
+    "sliderAria": "Slides do escritório",
+    "slide1Aria": "Slide 1",
+    "slide2Aria": "Slide 2",
+    "slide3Aria": "Slide 3",
+    "imgAlt": "Escritório de advocacia Garcete Suárez Ronco"
+  },
+  "areas": {
+    "label": "Áreas de Prática",
+    "area1Title": "Direito Penal Ordinário",
+    "area1Text": "Atuamos como defesa e como acusação em todos os tipos de crimes perante os tribunais penais da Cidade e da Província de Buenos Aires. A nossa prática abrange crimes contra o património, a integridade física e sexual, ciberdelitos - entre outros -, atuando em todas as instâncias do processo.",
+    "area2Title": "Direito Penal Federal",
+    "area2Text": "Com licença habilitante no tribunal federal, intervimos em causas de alta complexidade perante a justiça federal em todo o território nacional, com especial expertise em crimes relacionados com estupefacientes e a administração pública.",
+    "area3Title": "Direito Penal Económico e Empresarial",
+    "area3Text": "Aconselhamos e representamos pessoas físicas e jurídicas em causas que envolvem crimes económicos: fraudes, evasão fiscal, branqueamento de capitais, crimes relacionados com criptoativos e responsabilidade penal empresarial. Acompanhamos também em programas de compliance para prevenir a exposição penal de empresas e dos seus dirigentes.",
+    "area4Title": "Execução Penal",
+    "area4Text": "Intervimos na fase de execução da pena para garantir o pleno exercício dos direitos do condenado, tramitando todos os institutos previstos no regime de progressividade penitenciária."
+  },
+  "socios": {
+    "label": "Sócios",
+    "role": "FUNDADOR",
+    "matiasBio": "Graduado pela Universidade de Buenos Aires, Matías orientou a sua prática para a litigação penal estratégica em casos de alta complexidade. A sua abordagem distingue-se pelo desenho de soluções jurídicas precisas, com foco especial na negociação e na construção de estratégias que antecipam cada movimento do processo. A sua trajetória inclui a representação de figuras do espetáculo, da televisão e da vida pública, o que forjou nele uma capacidade singular para gerir causas de alta exposição com a discrição e o rigor que cada situação exige.",
+    "matiasLinkedin": "LinkedIn Matías Garcete Suárez",
+    "benjaminBio": "Graduado pela Universidade de Buenos Aires e Mestrando em Direito Penal pela Universidade de San Andrés, Benjamín construiu uma trajetória de mais de uma década no tribunal Criminal e Correccional Federal, intervindo em causas de alta complexidade e repercussão. Especialista em estupefacientes e crimes federais, com uma atuação destacada em debates orais, representa os seus clientes com o rigor técnico e a convicção que apenas a experiência acumulada nas fases mais exigentes do sistema penal proporciona.",
+    "benjaminLinkedin": "LinkedIn Benjamín Ronco"
+  },
+  "cobertura": {
+    "label": "Cobertura Interdisciplinar",
+    "intro": "O Escritório conta, para o seu desempenho, com uma cobertura interdisciplinar que permite abordar cada caso com rigor técnico e precisão, integrando conhecimentos especiais de outras disciplinas quando a causa assim o exige",
+    "area1Title": "Auditoria e Perícias Contábeis",
+    "area1Desc": "Estúdio Ronco e Associados, Consultores Contábeis",
+    "area1Linkedin": "LinkedIn Cra. Florencia Ronco",
+    "area2Title": "Perícias Caligráficas",
+    "area2Desc": "Calígrafo Público Nacional, ex Presidente do Colégio de Calígrafos Públicos da Cidade de Buenos Aires",
+    "area2Email": "Email José María Buitrago",
+    "area3Title": "Medicina Legal",
+    "area3Desc": "Professor Titular Emérito de Medicina Legal, Faculdade de Medicina (USAL). Ex Diretor da Carreira de Médicos Legistas, Departamento de Pós-Graduação (USAL). Ex Professor Regular de Medicina Legal e Deontologia Médica, Faculdade de Medicina (UBA)",
+    "area3Link": "Editorial El Ateneo Dr. Basile",
+    "area4Title": "Análise e Investigação de Ativos Digitais",
+    "area4Desc1": "Investigador Cripto AML especializado em rastreabilidade de criptoativos aplicado a causas judiciais. Certificado por Chainalysis (Reactors Certification), TRM Labs e GAFILAT. Docente convidado no ITBA, UCASAL e UBA",
+    "area4Linkedin1": "LinkedIn Nicolás Bausada",
+    "area4Desc2": "Investigador de criptomoedas. Membro do Grupo de Especialistas em Branqueamento de Dinheiro e Ativos Virtuais da UNODC e do Grupo de Criptomoedas do Cone Sul do Departamento de Justiça dos EUA",
+    "area4Linkedin2": "LinkedIn Denis Banchero",
+    "area5Title": "Psicologia Forense",
+    "area5Desc": "Licenciada em Psicologia, especialista em violência familiar e abuso sexual infantil. Mestre em Psicologia Forense e Avaliação do Dano Psíquico. Diploma em Estratégias de Defesa em Casos de Abuso Sexual, Abordagem Jurídica e Psicológica e Análise Crítica da Perspectiva de Gênero",
+    "area5Linkedin": "LinkedIn Lic. Liliana Sedler",
+    "area6Title": "Tradução e Interpretação em Inglês",
+    "area6Desc": "[Pendente — descrição do tradutor]"
+  },
+  "asociados": {
+    "label": "Escritórios Associados",
+    "imgAlt": "Escritório associado"
+  },
+  "contacto": {
+    "label": "Contacto",
+    "mapTitle": "Localização: Cerrito 1054, 1º andar, Cidade de Buenos Aires",
+    "title": "Como podemos ajudar?",
+    "nameLabel": "Nome e Sobrenome",
+    "emailLabel": "Email",
+    "messageLabel": "Mensagem",
+    "acceptText": "Li e aceito as ",
+    "privacyLink": "Políticas de Privacidade",
+    "submitBtn": "ENVIAR",
+    "submitLoading": "ENVIANDO...",
+    "successMsg": "Mensagem enviada com sucesso. Entraremos em contacto em breve.",
+    "errorMsg": "Houve um erro ao enviar a mensagem.",
+    "connErrorMsg": "Erro de ligação. Por favor, tente mais tarde."
+  },
+  "footer": {
+    "logoAlt": "Garcete Suárez Ronco Advogados",
+    "address": "CERRITO 1054 1° — CIDADE AUTÓNOMA DE BUENOS AIRES",
+    "copyright": "© 2026 Garcete Suárez Ronco Advogados. Todos os direitos reservados."
   }
 }

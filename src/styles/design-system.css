@@ -30,9 +30,9 @@
   --color-overlay-light: rgba(246, 230, 212, 0.1);
   
   /* ===== TYPOGRAPHY ===== */
-  /* Font Families - Bricolage Grotesque as the only font */
+  /* Font Families - Bricolage Grotesque (Primary) and Trust 3 (Secondary) */
   --font-primary: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-secondary: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-secondary: 'trust-3a', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
   /* Font Weights - ExtraLight 200 as the only weight */
   --weight-light: 200;
@@ -257,6 +257,17 @@
   color: var(--color-bg-dark);
 }
 
+.btn--whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  padding: var(--space-3) var(--space-6);
+}
+
+.btn--whatsapp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+}
+
 /* ===== CARDS ===== */
 .card {
   background: var(--color-bg-light);
@@ -385,9 +396,13 @@
   font-weight: var(--weight-regular);
   font-size: 18px;
   line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-caption);
+  letter-spacing: 0;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text-on-dark);
+}
+
+.section--bg-claro .section__label {
+  color: var(--color-text-on-light);
 }
 
 .section__title {
@@ -432,53 +447,10 @@
 }
 
 /* ===== ANIMATIONS ===== */
-/* Hero entrance - sequential cascade */
-@keyframes hero-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero__bg { animation: hero-fade-up 900ms ease-out forwards; }
-.hero__monograma { animation: hero-fade-up 700ms ease-out 600ms forwards; opacity: 0; }
-.hero__title-line-1 { animation: hero-fade-up 700ms ease-out 900ms forwards; opacity: 0; }
-.hero__title-line-2 { animation: hero-fade-up 700ms ease-out 1150ms forwards; opacity: 0; }
-.hero__cta { display: none; }
-.hero__arte { animation: hero-fade-up 900ms ease-out 1450ms forwards; opacity: 0; }
-
-/* Scroll animations */
-@keyframes scroll-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Animations are now handled via GSAP for better control and performance */
 .scroll-animate {
-  opacity: 0;
-  animation: scroll-fade-up 600ms ease-out forwards;
+  /* GSAP handles opacity and transform */
 }
-
-.scroll-animate.visible {
-  animation-play-state: running;
-}
-
-/* Stagger delays */
-.delay-1 { animation-delay: 100ms; }
-.delay-2 { animation-delay: 200ms; }
-.delay-3 { animation-delay: 300ms; }
-.delay-4 { animation-delay: 400ms; }
-.delay-5 { animation-delay: 500ms; }
-.delay-6 { animation-delay: 600ms; }
 
 /* ===== HERO SPECIFIC ===== */
 .hero {
@@ -533,7 +505,7 @@
 .hero__title-line {
   font-family: var(--font-secondary);
   font-weight: var(--weight-regular);
-  font-size: 72px;
+  font-size: 56px;
   line-height: var(--leading-tight);
   color: var(--color-cream);
   letter-spacing: var(--tracking-tight);
@@ -565,7 +537,7 @@
 }
 
 .hero__arte-img {
-  width: 60%;
+  width: 80%;
   height: auto;
   margin: 0 auto;
   opacity: 0.9;

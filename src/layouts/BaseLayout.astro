@@ -45,6 +45,7 @@ const ogImage = '/images/panorama.webp';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;600&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;400;600&display=swap" />
+    <link rel="stylesheet" href="https://use.typekit.net/kqa8wxq.css" />
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
   </head>
   <body class="antialiased">
@@ -52,31 +53,49 @@ const ogImage = '/images/panorama.webp';
     <main>
       <slot />
     </main>
+
+    <a href="https://wa.me/PLACEHOLDER" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.77-.88-2.04-.977-.26-.099-.45-.149-.64.149-.19.3-.73.977-.89 1.176-.16.199-.32.223-.617.074-.3-.15-1.26-.469-2.4-1.486-.88-.82-1.47-1.83-1.64-2.13-.17-.3-.018-.23.13-.32.13-.09.3-.297.45-.446.15-.15.2-.25.3-.4s.05-.19.02-.33c-.03-.14-.17-.29-.25-.33-.08-.04-.17-.04-.25-.01-.08.03-.34.27-.65.53-.31.26-.59.3-.81.3-.22 0-.52-.05-.77-.15-.25-.1-.44-.25-.44-.46 0-.21.15-.38.33-.55.18-.17.4-.42.6-.68.21-.26.3-.33.45-.45.15-.12.21-.18.3-.33.09-.15.05-.28-.04-.4-.09-.12-.3-.55-.41-.74-.11-.19-.22-.21-.42-.21-.2 0-.42.08-.64.34-.22.26-.84.88-.84 2.15 0 1.27.87 2.5 1.98 3.33.84.65 1.83 1.37 2.63 1.83.8.46 1.53.59 1.77.74.23.15.37.12.51-.07.14-.19.6-.86.75-1.16.15-.3.3-.41.5-.41.2 0 .4.01.6.15.2.14.77.73.89 1.03.12.3.21.62.06.93-.15.31-.22.52-.33.73zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
+    </a>
+
+    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script is:inline>
-      // Scroll animations using Intersection Observer
-      (function() {
+      document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) {
-          document.querySelectorAll('.scroll-animate').forEach(el => el.classList.add('visible'));
-          return;
+        if (prefersReducedMotion) return;
+
+        // Hero animations - sequential cascade
+        const heroElements = document.querySelectorAll('.hero__bg, .hero__monograma, .hero__title-line, .hero__arte');
+        if (heroElements.length > 0) {
+          gsap.from(heroElements, {
+            opacity: 0,
+            y: 16,
+            duration: 0.3,
+            stagger: 0.3,
+            ease: 'power2.out'
+          });
         }
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            } else {
-              // Bidirectional: re-animate when scrolling back up
-              entry.target.classList.remove('visible');
-            }
+        // Scroll animations for other elements in main
+        const main = document.querySelector('main');
+        if (main) {
+          ScrollTrigger.batch('.scroll-animate, img, h1, h2, h3, h4, h5, h6, p, .card, .partner-card', {
+            onEnter: batch => gsap.from(batch, {
+              opacity: 0,
+              y: 16,
+              stagger: 0.3,
+              duration: 0.3,
+              ease: 'power2.out'
+            }),
+            start: 'top 90%'
           });
-        }, {
-          rootMargin: '0px 0px -20% 0px', // Trigger at 20-25% from bottom
-          threshold: 0.1
-        });
-
-        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
-      })();
+        }
+      });
     </script>
   </body>
 </html>
@@ -90,7 +109,7 @@ const ogImage = '/images/panorama.webp';
     margin: 0;
     background: #1D1412;
     color: #F6E6D4;
-    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-secondary);
     font-weight: 200;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -101,14 +120,17 @@ const ogImage = '/images/panorama.webp';
   button,
   input,
   select,
-  textarea,
+  textarea {
+    font-family: var(--font-secondary);
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-primary);
   }
 
   input::placeholder,
   textarea::placeholder {
-    font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-secondary);
   }
 
   * {
@@ -128,5 +150,28 @@ const ogImage = '/images/panorama.webp';
   ::selection {
     background: #F6E6D4;
     color: #1D1412;
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-6);
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-elevated);
+    z-index: var(--z-toast);
+    transition: transform var(--transition-base), background-color var(--transition-base);
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
   }
 </style>

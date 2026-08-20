@@ -2,5 +2,85 @@
   "home": {
     "title": "Garcete Suárez Ronco - Criminal Defense Lawyers in Buenos Aires",
     "description": "Law firm specializing in Ordinary, Federal, Economic and Penal Execution Law. Cerrito 1054, CABA."
+  },
+  "hero": {
+    "line1": "Every case is unique.",
+    "line2": "We defend it as such."
+  },
+  "estudio": {
+    "slide1": "Criminal law is our core. We act in defense of the accused and in representation of prosecutors in ordinary and federal courts, with a trajectory in high-profile cases and technical demand.",
+    "slide2": "Criminal specialization does not prevent us from providing a complete legal response. We have experience in civil, commercial, and labor law to accompany our clients beyond the criminal court, covering the spectrum of their needs with the same level of demand.",
+    "slide3": "We practice law with responsibility and proximity. Every client has direct access to the firm's partners and receives clear information about the status of their case, ensuring they always know where they stand and what comes next.",
+    "sliderAria": "Firm slides",
+    "slide1Aria": "Slide 1",
+    "slide2Aria": "Slide 2",
+    "slide3Aria": "Slide 3",
+    "imgAlt": "Garcete Suárez Ronco Law Firm"
+  },
+  "areas": {
+    "label": "Practice Areas",
+    "area1Title": "Ordinary Criminal Law",
+    "area1Text": "We act as defense and as prosecution in all types of crimes before the criminal courts of the City and the Province of Buenos Aires. Our practice covers crimes against property, physical and sexual integrity, cybercrimes - among others -, acting in all stages of the process.",
+    "area2Title": "Federal Criminal Law",
+    "area2Text": "With an enabling license in the federal court, we intervene in high-complexity cases before the federal justice throughout the national territory, with special expertise in crimes related to narcotics and public administration.",
+    "area3Title": "Economic and Corporate Criminal Law",
+    "area3Text": "We advise and represent natural and legal persons in cases involving economic crimes: fraud, tax evasion, money laundering, crimes related to crypto-assets, and corporate criminal liability. We also accompany in compliance programs to prevent the criminal exposure of companies and their executives.",
+    "area4Title": "Penal Execution",
+    "area4Text": "We intervene in the sentence execution stage to guarantee the full exercise of the convicted person's rights, processing every institute provided in the penitentiary progressiveness regime."
+  },
+  "socios": {
+    "label": "Partners",
+    "role": "FOUNDER",
+    "matiasBio": "A graduate of the University of Buenos Aires, Matías oriented his practice towards strategic criminal litigation in high-complexity cases. His approach is distinguished by the design of precise legal solutions, with a special focus on negotiation and the construction of strategies that anticipate every move of the process. His trajectory includes the representation of figures from entertainment, television, and public life, which forged in him a singular capacity to manage high-exposure cases with the discretion and rigor that each situation demands.",
+    "matiasLinkedin": "LinkedIn Matías Garcete Suárez",
+    "benjaminBio": "A graduate of the University of Buenos Aires and a Master's candidate in Criminal Law at the University of San Andrés, Benjamín built a trajectory of more than a decade in the Federal Criminal and Correctional court, intervening in high-complexity and high-impact cases. A specialist in narcotics and federal crimes, with a distinguished performance in oral trials, he represents his clients with the technical rigor and conviction that only comes from experience accumulated in the most demanding stages of the criminal system.",
+    "benjaminLinkedin": "LinkedIn Benjamín Ronco"
+  },
+  "cobertura": {
+    "label": "Interdisciplinary Coverage",
+    "intro": "The Firm has, for its performance, interdisciplinary coverage that allows each case to be approached with technical rigor and precision, integrating special knowledge from other disciplines when the case so requires",
+    "area1Title": "Audit and Accounting Expert Reports",
+    "area1Desc": "Ronco and Associates Studio, Accounting Consultants",
+    "area1Linkedin": "LinkedIn Cra. Florencia Ronco",
+    "area2Title": "Graphological Expert Reports",
+    "area2Desc": "National Public Calligrapher, former President of the College of Public Calligraphers of the City of Buenos Aires",
+    "area2Email": "Email José María Buitrago",
+    "area3Title": "Legal Medicine",
+    "area3Desc": "Emeritus Full Professor of Legal Medicine, Faculty of Medicine (USAL). Former Director of the Legal Medicine Career, Postgraduate Department (USAL). Former Regular Professor of Legal Medicine and Medical Deontology, Faculty of Medicine (UBA",
+    "area3Link": "Editorial El Ateneo Dr. Basile",
+    "area4Title": "Analysis and Investigation of Digital Assets",
+    "area4Desc1": "Crypto AML Investigator specialized in crypto-asset traceability applied to judicial cases. Certified by Chainalysis (Reactors Certification), TRM Labs, and GAFILAT. Guest lecturer at ITBA, UCASAL, and UBA",
+    "area4Linkedin1": "LinkedIn Nicolás Bausada",
+    "area4Desc2": "Cryptocurrency investigator. Member of the UNODC Expert Group on Money Laundering and Virtual Assets and the Southern Cone Cryptocurrency Group of the US Department of Justice",
+    "area4Linkedin2": "LinkedIn Denis Banchero",
+    "area5Title": "Forensic Psychology",
+    "area5Desc": "Licensed in Psychology, specialist in domestic violence and child sexual abuse. Master in Forensic Psychology and Psychological Damage Assessment. Diploma in Defense Strategies in Sexual Abuse Cases, Legal and Psychological Approach, and Critical Analysis of the Gender Perspective",
+    "area5Linkedin": "LinkedIn Lic. Liliana Sedler",
+    "area6Title": "English Translation and Interpretation",
+    "area6Desc": "[Pending — translator's description]"
+  },
+  "asociados": {
+    "label": "Associated Firms",
+    "imgAlt": "Associated firm"
+  },
+  "contacto": {
+    "label": "Contact",
+    "mapTitle": "Location: Cerrito 1054, 1st floor, City of Buenos Aires",
+    "title": "How can we help you?",
+    "nameLabel": "First and Last Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "acceptText": "I have read and accept the ",
+    "privacyLink": "Privacy Policies",
+    "submitBtn": "SEND",
+    "submitLoading": "SENDING...",
+    "successMsg": "Message sent successfully. We will contact you shortly.",
+    "errorMsg": "There was an error sending the message.",
+    "connErrorMsg": "Connection error. Please try again later."
+  },
+  "footer": {
+    "logoAlt": "Garcete Suárez Ronco Lawyers",
+    "address": "CERRITO 1054 1° — AUTONOMOUS CITY OF BUENOS AIRES",
+    "copyright": "© 2026 Garcete Suárez Ronco Lawyers. All rights reserved."
   }
 }

@@ -43,7 +43,6 @@ const { lang = 'es' } = Astro.props;
       <div class="header__lang-dropdown">
         <button class="header__lang-toggle" id="lang-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu">
           <span class="header__lang-current" id="lang-current">{languages[lang] || 'ESP'}</span>
-          <span class="header__lang-arrow" aria-hidden="true"></span>
         </button>
         <ul class="header__lang-menu" id="lang-menu" role="menu">
           {Object.entries(languages).map(([code, label]) => (
@@ -86,13 +85,13 @@ const { lang = 'es' } = Astro.props;
     z-index: var(--z-sticky);
     background: transparent;
     transition: background var(--transition-base), box-shadow var(--transition-base), padding var(--transition-base);
-    padding: var(--space-12) 0;
+    padding: 20px 0;
   }
 
   .site-header--scrolled {
     background: var(--color-bg-dark);
     box-shadow: var(--shadow-subtle);
-    padding: var(--space-6) 0;
+    padding: 10px 0;
   }
 
   .header__inner {
@@ -172,7 +171,7 @@ const { lang = 'es' } = Astro.props;
   }
 
   .site-header--scrolled .header__monogram-img {
-    width: 80px;
+    width: 60px;
   }
 
   .header__lang-link {
@@ -266,6 +265,8 @@ const { lang = 'es' } = Astro.props;
     gap: 6px;
     align-items: center;
     opacity: 0.85;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .header__lang-arrow {
@@ -512,7 +513,7 @@ const { lang = 'es' } = Astro.props;
     const allLangLinks = document.querySelectorAll('.header__lang-link');
     allLangLinks.forEach(function(link) {
       link.addEventListener('click', function(e) {
-        e.preventDefault();
+        // Removed e.preventDefault() to allow navigation
         const langText = link.textContent.trim();
         allLangLinks.forEach(function(l) {
           if (l.textContent.trim() === langText) {
