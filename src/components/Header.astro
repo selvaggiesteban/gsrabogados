@@ -175,7 +175,7 @@ const { lang = 'es' } = Astro.props;
   }
 
   .header__lang-link {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-weight: var(--weight-light);
     font-size: var(--text-xs);
     color: var(--color-cream);
@@ -257,7 +257,7 @@ const { lang = 'es' } = Astro.props;
     border: none;
     cursor: pointer;
     color: var(--color-cream);
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-weight: var(--weight-light);
     font-size: var(--text-xs);
     letter-spacing: var(--tracking-wide);
@@ -508,28 +508,5 @@ const { lang = 'es' } = Astro.props;
         }
       });
     }
-
-    // Sync language selection across inline and dropdown
-    const allLangLinks = document.querySelectorAll('.header__lang-link');
-    allLangLinks.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        // Removed e.preventDefault() to allow navigation
-        const langText = link.textContent.trim();
-        allLangLinks.forEach(function(l) {
-          if (l.textContent.trim() === langText) {
-            l.classList.add('header__lang-link--active');
-            l.setAttribute('aria-current', 'true');
-          } else {
-            l.classList.remove('header__lang-link--active');
-            l.removeAttribute('aria-current');
-          }
-        });
-        if (langCurrent) langCurrent.textContent = langText;
-        if (langToggle && langMenu) {
-          langToggle.setAttribute('aria-expanded', 'false');
-          langMenu.classList.remove('header__lang-menu--open');
-        }
-      });
-    });
   })();
 </script>

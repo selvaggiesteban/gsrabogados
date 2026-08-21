@@ -82,5 +82,28 @@
     "logoAlt": "Garcete Suárez Ronco Abogados",
     "address": "CERRITO 1054 1° — CIUDAD AUTÓNOMA DE BUENOS AIRES",
     "copyright": "© 2026 Garcete Suárez Ronco Abogados. Todos los derechos reservados."
+  },
+  "privacidad": {
+    "label": "Legal",
+    "title": "Políticas de Privacidad",
+    "intro": "El presente documento establece las políticas de privacidad y el tratamiento de los datos personales recabados a través del sitio web de Garcete Suárez Ronco Abogados.",
+    "s1Title": "1. Datos recopilados",
+    "s1Text": "Recopilamos la información que usted nos proporciona voluntariamente a través del formulario de contacto, incluyendo nombre y apellido, correo electrónico y el contenido de su mensaje. No solicitamos información sensible salvo que sea estrictamente necesario para la prestación del servicio.",
+    "s2Title": "2. Finalidad del tratamiento",
+    "s2Text": "Los datos personales son tratados con la finalidad de responder consultas, brindar asesoramiento jurídico, gestionar la relación profesional y cumplir con obligaciones legales aplicables. En ningún caso los datos serán utilizados con fines comerciales o publicitarios sin consentimiento expreso.",
+    "s3Title": "3. Base legal",
+    "s3Text": "El tratamiento se fundamenta en el consentimiento del titular de los datos, conforme a la Ley N° 25.326 de Protección de Datos Personales y su normativa reglamentaria.",
+    "s4Title": "4. Conservación de los datos",
+    "s4Text": "Los datos serán conservados durante el tiempo necesario para cumplir con la finalidad para la que fueron recabados y, posteriormente, durante los plazos legales aplicables a la actividad profesional del estudio jurídico.",
+    "s5Title": "5. Cesión de datos",
+    "s5Text": "Sus datos personales no serán cedidos a terceros, salvo en los supuestos previstos por la legislación vigente o cuando medie consentimiento expreso del titular.",
+    "s6Title": "6. Medidas de seguridad",
+    "s6Text": "Adoptamos las medidas técnicas y organizativas necesarias para garantizar la seguridad, confidencialidad e integridad de los datos personales, de conformidad con lo establecido por la normativa vigente.",
+    "s7Title": "7. Derechos del titular",
+    "s7Text": "El titular de los datos personales tiene derecho a acceder, rectificar, suprimir, oponerse al tratamiento y solicitar la portabilidad de sus datos. Para ejercer estos derechos puede comunicarse a",
+    "s8Title": "8. Contacto",
+    "s8Text": "Para cualquier consulta relacionada con esta política, puede contactarnos a",
+    "s8Text2": "o en Cerrito 1054, 1° piso, Ciudad Autónoma de Buenos Aires.",
+    "updated": "Última actualización: agosto 2026"
   }
 }

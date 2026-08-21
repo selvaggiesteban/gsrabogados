@@ -9,11 +9,38 @@ export function getLangFromURL(url: URL) {
 export async function useTranslations(lang: string) {
   try {
     const translations = await import(`./locales/${lang}.json`).then((module) => module.default);
-    return new Map(Object.entries(translations));
+
+    return {
+      get: (key: string) => {
+        const keys = key.split('.');
+        let result: any = translations;
+        for (const k of keys) {
+          if (result && Object.prototype.hasOwnProperty.call(result, k)) {
+            result = result[k];
+          } else {
+            return ''; // Return empty string if key not found
+          }
+        }
+        return result;
+      }
+    };
   } catch (e) {
     console.error(`Could not load translations for language: ${lang}`, e);
-    // Fallback to default language
     const fallback = await import(`./locales/${defaultLang}.json`).then((module) => module.default);
-    return new Map(Object.entries(fallback));
+
+    return {
+      get: (key: string) => {
+        const keys = key.split('.');
+        let result: any = fallback;
+        for (const k of keys) {
+          if (result && Object.prototype.hasOwnProperty.call(result, k)) {
+            result = result[k];
+          } else {
+            return '';
+          }
+        }
+        return result;
+      }
+    };
   }
 }

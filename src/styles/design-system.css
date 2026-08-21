@@ -398,11 +398,12 @@
   line-height: var(--leading-normal);
   letter-spacing: 0;
   text-transform: uppercase;
-  color: var(--color-text-on-dark);
+  color: var(--label-color, var(--color-text-on-dark));
 }
 
-.section--bg-claro .section__label {
-  color: var(--color-text-on-light);
+.section--bg-claro .section__label,
+.section--light .section__label {
+  color: var(--color-text-on-light) !important;
 }
 
 .section__title {
@@ -829,4 +830,13 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+.section--bg-claro,
+.section--light {
+  --label-color: var(--color-text-on-light);
+}
+
+.section--bg-claro .section__label,
+.section--light .section__label {
+  color: var(--label-color) !important;
 }

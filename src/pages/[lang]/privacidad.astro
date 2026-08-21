@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { languages } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const langs = Object.keys(languages);
+  return langs.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = await useTranslations(lang);
+
+const title = `${t.get('privacidad.title')} - Garcete Suárez Ronco Abogados`;
+const description = t.get('privacidad.intro');
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <section class="page-privacidad">
+    <div class="page-privacidad__inner">
+      <header class="page-privacidad__header">
+        <p class="section__label">{t.get('privacidad.label')}</p>
+        <h1 class="page-privacidad__title">{t.get('privacidad.title')}</h1>
+      </header>
+      <div class="page-privacidad__content">
+        <p class="page-privacidad__intro">{t.get('privacidad.intro')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s1Title')}</h2>
+        <p>{t.get('privacidad.s1Text')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s2Title')}</h2>
+        <p>{t.get('privacidad.s2Text')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s3Title')}</h2>
+        <p>{t.get('privacidad.s3Text')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s4Title')}</h2>
+        <p>{t.get('privacidad.s4Text')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s5Title')}</h2>
+        <p>{t.get('privacidad.s5Text')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s6Title')}</h2>
+        <p>{t.get('privacidad.s6Text')}</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s7Title')}</h2>
+        <p>{t.get('privacidad.s7Text')} <a href="mailto:info@gsrabogados.com.ar" class="page-privacidad__link">info@gsrabogados.com.ar</a>.</p>
+
+        <h2 class="page-privacidad__section-title">{t.get('privacidad.s8Title')}</h2>
+        <p>{t.get('privacidad.s8Text')} <a href="mailto:info@gsrabogados.com.ar" class="page-privacidad__link">info@gsrabogados.com.ar</a> {t.get('privacidad.s8Text2')}</p>
+
+        <p class="page-privacidad__updated">{t.get('privacidad.updated')}</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .page-privacidad {
+    padding: var(--space-20) var(--section-padding-x-desktop);
+    background: var(--color-bg-claro);
+    background-image: linear-gradient(rgba(246, 230, 212, 0.65), rgba(246, 230, 212, 0.65)), url('/images/fondo-claro.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh;
+  }
+
+  .page-privacidad__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-privacidad__header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .page-privacidad__title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 42px;
+    color: var(--color-dark-brown);
+    margin-top: var(--space-3);
+  }
+
+  .page-privacidad__content {
+    font-family: var(--font-secondary);
+    font-weight: var(--weight-light);
+    color: var(--color-dark-brown);
+  }
+
+  .page-privacidad__intro {
+    font-size: 18px;
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-10);
+    text-align: center;
+    opacity: 0.85;
+  }
+
+  .page-privacidad__section-title {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 22px;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+    color: var(--color-dark-brown);
+  }
+
+  .page-privacidad__content p {
+    font-size: 15px;
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    opacity: 0.9;
+  }
+
+  .page-privacidad__link {
+    color: #B8893B;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .page-privacidad__updated {
+    margin-top: var(--space-12);
+    font-size: 13px;
+    opacity: 0.6;
+    text-align: center;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .page-privacidad {
+      padding: var(--space-12) var(--section-padding-x-mobile);
+    }
+    .page-privacidad__title {
+      font-size: 30px;
+    }
+    .page-privacidad__section-title {
+      font-size: 18px;
+    }
+    .page-privacidad__intro {
+      font-size: 16px;
+    }
+  }
+</style>

@@ -34,7 +34,7 @@ const { chromium } = require('playwright');
     }
 
     // 3. Verify Socios mobile order
-    await page.setViewport({ width: 375, height: 812 }); // Mobile viewport
+    await page.setViewportSize({ width: 375, height: 812 }); // Mobile viewport
     const sociosMobile = page.locator('.socio__mobile-item .socio__nombre');
     const sociosCount = await sociosMobile.count();
     const sociosNames = [];

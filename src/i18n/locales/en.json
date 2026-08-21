@@ -57,7 +57,7 @@
     "area5Desc": "Licensed in Psychology, specialist in domestic violence and child sexual abuse. Master in Forensic Psychology and Psychological Damage Assessment. Diploma in Defense Strategies in Sexual Abuse Cases, Legal and Psychological Approach, and Critical Analysis of the Gender Perspective",
     "area5Linkedin": "LinkedIn Lic. Liliana Sedler",
     "area6Title": "English Translation and Interpretation",
-    "area6Desc": "[Pending — translator's description]"
+    "area6Desc": "[Pending — translator description to be confirmed by client]"
   },
   "asociados": {
     "label": "Associated Firms",
@@ -82,5 +82,28 @@
     "logoAlt": "Garcete Suárez Ronco Lawyers",
     "address": "CERRITO 1054 1° — AUTONOMOUS CITY OF BUENOS AIRES",
     "copyright": "© 2026 Garcete Suárez Ronco Lawyers. All rights reserved."
+  },
+  "privacidad": {
+    "label": "Legal",
+    "title": "Privacy Policy",
+    "intro": "This document establishes the privacy policies and the processing of personal data collected through the website of Garcete Suárez Ronco Abogados.",
+    "s1Title": "1. Data collected",
+    "s1Text": "We collect the information that you voluntarily provide through the contact form, including first and last name, email address, and the content of your message. We do not request sensitive information unless it is strictly necessary for the provision of the service.",
+    "s2Title": "2. Purpose of processing",
+    "s2Text": "Personal data is processed for the purpose of responding to inquiries, providing legal advice, managing the professional relationship, and complying with applicable legal obligations. Under no circumstances will data be used for commercial or advertising purposes without explicit consent.",
+    "s3Title": "3. Legal basis",
+    "s3Text": "Processing is based on the consent of the data subject, in accordance with Law No. 25,326 on the Protection of Personal Data and its implementing regulations.",
+    "s4Title": "4. Data retention",
+    "s4Text": "Data will be retained for the time necessary to fulfill the purpose for which it was collected and, subsequently, for the legal periods applicable to the professional activity of the law firm.",
+    "s5Title": "5. Data disclosure",
+    "s5Text": "Your personal data will not be disclosed to third parties, except in cases provided for by current legislation or with the explicit consent of the data subject.",
+    "s6Title": "6. Security measures",
+    "s6Text": "We adopt the necessary technical and organizational measures to guarantee the security, confidentiality, and integrity of personal data, in accordance with current regulations.",
+    "s7Title": "7. Data subject rights",
+    "s7Text": "The data subject has the right to access, rectify, delete, object to processing, and request the portability of their data. To exercise these rights, you may contact",
+    "s8Title": "8. Contact",
+    "s8Text": "For any inquiries related to this policy, you may contact us at",
+    "s8Text2": "or at Cerrito 1054, 1st floor, Autonomous City of Buenos Aires.",
+    "updated": "Last updated: August 2026"
   }
 }

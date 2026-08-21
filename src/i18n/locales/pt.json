@@ -57,7 +57,7 @@
     "area5Desc": "Licenciada em Psicologia, especialista em violência familiar e abuso sexual infantil. Mestre em Psicologia Forense e Avaliação do Dano Psíquico. Diploma em Estratégias de Defesa em Casos de Abuso Sexual, Abordagem Jurídica e Psicológica e Análise Crítica da Perspectiva de Gênero",
     "area5Linkedin": "LinkedIn Lic. Liliana Sedler",
     "area6Title": "Tradução e Interpretação em Inglês",
-    "area6Desc": "[Pendente — descrição do tradutor]"
+    "area6Desc": "[Pendente — descrição do tradutor a ser confirmada pelo cliente]"
   },
   "asociados": {
     "label": "Escritórios Associados",
@@ -82,5 +82,28 @@
     "logoAlt": "Garcete Suárez Ronco Advogados",
     "address": "CERRITO 1054 1° — CIDADE AUTÓNOMA DE BUENOS AIRES",
     "copyright": "© 2026 Garcete Suárez Ronco Advogados. Todos os direitos reservados."
+  },
+  "privacidad": {
+    "label": "Jurídico",
+    "title": "Políticas de Privacidade",
+    "intro": "O presente documento estabelece as políticas de privacidade e o tratamento dos dados pessoais recolhidos através do site da Garcete Suárez Ronco Advogados.",
+    "s1Title": "1. Dados recolhidos",
+    "s1Text": "Recolhemos as informações que nos fornece voluntariamente através do formulário de contacto, incluindo nome e sobrenome, endereço de email e o conteúdo da sua mensagem. Não solicitamos informações sensíveis, salvo quando estritamente necessário para a prestação do serviço.",
+    "s2Title": "2. Finalidade do tratamento",
+    "s2Text": "Os dados pessoais são tratados com a finalidade de responder a consultas, prestar aconselhamento jurídico, gerir a relação profissional e cumprir as obrigações legais aplicáveis. Em nenhum caso os dados serão utilizados para fins comerciais ou publicitários sem consentimento expresso.",
+    "s3Title": "3. Base legal",
+    "s3Text": "O tratamento fundamenta-se no consentimento do titular dos dados, em conformidade com a Lei N.º 25.326 de Proteção de Dados Pessoais e sua regulamentação.",
+    "s4Title": "4. Conservação dos dados",
+    "s4Text": "Os dados serão conservados pelo tempo necessário para cumprir a finalidade para a qual foram recolhidos e, posteriormente, pelos prazos legais aplicáveis à atividade profissional do escritório de advocacia.",
+    "s5Title": "5. Cessão de dados",
+    "s5Text": "Os seus dados pessoais não serão cedidos a terceiros, salvo nos casos previstos pela legislação vigente ou quando houver consentimento expresso do titular.",
+    "s6Title": "6. Medidas de segurança",
+    "s6Text": "Adotamos as medidas técnicas e organizativas necessárias para garantir a segurança, confidencialidade e integridade dos dados pessoais, em conformidade com o disposto pela legislação vigente.",
+    "s7Title": "7. Direitos do titular",
+    "s7Text": "O titular dos dados pessoais tem o direito de aceder, retificar, eliminar, opor-se ao tratamento e solicitar a portabilidade dos seus dados. Para exercer estes direitos, pode contactar-nos em",
+    "s8Title": "8. Contacto",
+    "s8Text": "Para qualquer consulta relacionada com esta política, pode contactar-nos em",
+    "s8Text2": "ou em Cerrito 1054, 1.º andar, Cidade Autónoma de Buenos Aires.",
+    "updated": "Última atualização: agosto de 2026"
   }
 }
