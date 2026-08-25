@@ -988,6 +988,7 @@ const description = t.get('home.description');
   .contacto {
     position: relative;
     padding: 0;
+    margin-bottom: 0;
   }
 
   .contacto__bg {
@@ -1037,9 +1038,9 @@ const description = t.get('home.description');
   }
 
   .contacto__title {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-weight: var(--weight-regular);
-    font-size: var(--text-2xl);
+    font-size: 44px;
     color: var(--color-cream);
     margin-bottom: var(--space-8);
   }
@@ -1213,6 +1214,9 @@ const description = t.get('home.description');
     position: relative;
     padding: 0;
     background: var(--color-bg-dark);
+    background-image: linear-gradient(rgba(29, 20, 18, 0.92), rgba(29, 20, 18, 0.92)), url('/images/fondo-oscuro.webp');
+    background-size: cover;
+    background-position: center;
   }
 
   .footer__bg {
