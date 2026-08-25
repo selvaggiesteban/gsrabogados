@@ -348,9 +348,19 @@ const description = t.get('home.description');
 </BaseLayout>
 
 <style is:global>
+  /* ===== EVITAR SELECCION DE TEXTO ===== */
+  *, *::before, *::after {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  input, textarea, select, a, button {
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+
   /* ===== IMAGENES DE FONDO POR SECCION ===== */
   .section--bg-oscuro {
-    background-image: linear-gradient(rgba(29, 20, 18, 0.55), rgba(29, 20, 18, 0.55)), url('/images/fondo-oscuro.webp');
+    background-image: linear-gradient(rgba(29, 20, 18, 0.55), rgba(29, 20, 18, 0.55)), url('/images/GSR_FONDO-04.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -368,13 +378,13 @@ const description = t.get('home.description');
       background-attachment: scroll;
     }
     .section--bg-oscuro {
-      background-image: linear-gradient(rgba(29, 20, 18, 0.55), rgba(29, 20, 18, 0.55)), url('/images/GSR_FONDO-03.webp');
+      background-image: linear-gradient(rgba(29, 20, 18, 0.55), rgba(29, 20, 18, 0.55)), url('/images/GSR_FONDO-04.webp');
     }
     .contacto__bg, .footer__bg {
       display: none;
     }
     .contacto, .footer {
-      background-image: linear-gradient(rgba(29, 20, 18, 0.7), rgba(29, 20, 18, 0.7)), url('/images/GSR_FONDO-03.webp');
+      background-image: linear-gradient(rgba(29, 20, 18, 0.55), rgba(29, 20, 18, 0.55)), url('/images/GSR_FONDO-04.webp');
       background-size: cover;
       background-position: center;
     }
@@ -889,7 +899,7 @@ const description = t.get('home.description');
       border-right: none;
     }
     .cobertura__area {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
 
@@ -949,23 +959,22 @@ const description = t.get('home.description');
     gap: var(--space-8);
     width: max-content;
     animation: carousel-scroll 30s linear infinite;
+    will-change: transform;
   }
 
   .estudios-carousel__item {
-    flex: 0 0 auto;
-    width: 20vw;
+    flex: 0 0 200px;
+    width: 200px;
     height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-6);
+    padding: var(--space-4);
   }
 
   .estudios-carousel__logo {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    width: 160px;
+    height: 120px;
     object-fit: contain;
   }
 
@@ -979,8 +988,13 @@ const description = t.get('home.description');
 
   @media (max-width: 768px) {
     .estudios-carousel__item {
-      width: 40vw;
+      flex: 0 0 140px;
+      width: 140px;
       height: 120px;
+    }
+    .estudios-carousel__logo {
+      width: 110px;
+      height: 90px;
     }
     .estudios-carousel__track {
       animation-duration: 20s;
