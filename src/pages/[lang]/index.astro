@@ -673,9 +673,9 @@ const description = t.get('home.description');
   }
 
   .socio__nombre {
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
     font-weight: 200;
-    font-size: 36px;
+    font-size: 44px;
     color: var(--color-dark-brown);
     letter-spacing: var(--tracking-wide);
     margin-bottom: var(--space-2);
@@ -684,7 +684,7 @@ const description = t.get('home.description');
   .socio__rol {
     font-family: var(--font-secondary);
     font-weight: 200;
-    font-size: 24px;
+    font-size: 16px;
     color: #1D1412;
     letter-spacing: var(--tracking-caption);
     margin-bottom: var(--space-4);
@@ -807,6 +807,7 @@ const description = t.get('home.description');
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid #F6E6D4;
   }
 
   .cobertura__card:nth-child(even) {
@@ -821,7 +822,7 @@ const description = t.get('home.description');
   .cobertura__area {
     font-family: var(--font-secondary);
     font-weight: var(--weight-regular);
-    font-size: 24px;
+    font-size: 36px;
     color: var(--color-cream);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
@@ -960,8 +961,6 @@ const description = t.get('home.description');
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(29, 20, 18, 0.04);
-    border: 1px solid rgba(29, 20, 18, 0.08);
     padding: var(--space-6);
   }
 
@@ -971,14 +970,9 @@ const description = t.get('home.description');
     width: auto;
     height: auto;
     object-fit: contain;
-    opacity: 0.5;
-    filter: grayscale(100%);
-    transition: opacity var(--transition-base), filter var(--transition-base);
   }
 
   .estudios-carousel__item:hover .estudios-carousel__logo {
-    opacity: 1;
-    filter: grayscale(0%);
   }
 
   @keyframes carousel-scroll {
