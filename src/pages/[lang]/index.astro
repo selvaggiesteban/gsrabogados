@@ -950,16 +950,18 @@ const description = t.get('home.description');
     overflow: hidden;
     padding: var(--space-12) 0;
     position: relative;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
   }
 
   .estudios-carousel__track {
     display: flex;
     gap: var(--space-8);
     width: max-content;
-    animation: carousel-scroll 30s linear infinite;
+    animation: carousel-scroll 30s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   .estudios-carousel__item {
