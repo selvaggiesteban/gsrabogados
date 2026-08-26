@@ -17,10 +17,10 @@ const { lang = 'es' } = Astro.props;
         <span aria-hidden="true"></span>
       </button>
       <ul class="header__nav-list">
-        <li><a href={`/${lang}#areas`} class="header__nav-link">Áreas de práctica</a></li>
-        <li><a href={`/${lang}#socios`} class="header__nav-link">Socios</a></li>
-        <li><a href={`/${lang}#cobertura`} class="header__nav-link">Cobertura interdisciplinaria</a></li>
-        <li><a href={`/${lang}#contacto`} class="header__nav-link">Contacto</a></li>
+        <li><a href="#areas" class="header__nav-link">Áreas de práctica</a></li>
+        <li><a href="#socios" class="header__nav-link">Socios</a></li>
+        <li><a href="#cobertura" class="header__nav-link">Cobertura interdisciplinaria</a></li>
+        <li><a href="#contacto" class="header__nav-link">Contacto</a></li>
       </ul>
     </nav>
 
@@ -478,7 +478,15 @@ const { lang = 'es' } = Astro.props;
       }
 
       nav.querySelectorAll('.header__nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
           if (nav.classList.contains('header__nav--open')) {
             closeMenu();
           }
