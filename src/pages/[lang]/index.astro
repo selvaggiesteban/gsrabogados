@@ -348,6 +348,13 @@ const description = t.get('home.description');
 </BaseLayout>
 
 <style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+
   /* ===== EVITAR SELECCION DE TEXTO ===== */
   *, *::before, *::after {
     -webkit-user-select: none;
